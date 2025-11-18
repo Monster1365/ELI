@@ -1,0 +1,83 @@
+.body {
+  width: 100%;
+  min-height: 100%;
+  background: linear-gradient(90deg, rgb(61, 187, 22), rgb(208, 237, 61));
+  position: relative;
+}
+
+.container {
+  position: absolute;
+  width: 30rem;
+  height: 20rem;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 3rem;
+  margin: 1rem;
+  color: rgb(61, 187, 22);
+}
+
+.login-button {
+  width: 10rem;
+  height: 3rem;
+  border-radius: 100px;
+  font-size: 1rem;
+  color: white;
+  margin: 1rem;
+  border: none;
+  background: linear-gradient(90deg, rgb(61, 187, 22), rgb(208, 237, 61));
+  box-shadow: 0 4px 16px rgba(0, 255, 34, 0.3);
+  transition: 0.3s;
+}
+
+.login-button:hover {
+  width: 11rem;
+  height: 4rem;
+  background: linear-gradient(90deg, rgb(61, 187, 22), rgb(61, 187, 22));
+  box-shadow: 0 4px 20px rgba(0, 203, 27, 0.375);
+}
+
+
+.login-button:active {
+  width: 10.7rem;
+  height: 3.7rem;
+  background: linear-gradient(90deg, rgb(41, 134, 13), rgb(41, 134, 13));
+}
+
+.sign-button {
+  width: 10rem;
+  height: 3rem;
+  border-radius: 100px;
+  font-size: 1rem;
+  color: white;
+  margin: 1rem;
+  border: none;
+  background: linear-gradient(90deg, rgb(61, 187, 22), rgb(208, 237, 61));
+  box-shadow: 0 4px 16px rgba(0, 255, 34, 0.3);
+  transition: 0.3s;
+}
+
+.sign-button:hover {
+  width: 11rem;
+  height: 4rem;
+  background: linear-gradient(90deg, rgb(61, 187, 22), rgb(61, 187, 22));
+  box-shadow: 0 4px 20px rgba(0, 203, 27, 0.375);
+}
+
+.sign-button:active {
+  width: 10.7rem;
+  height: 3.7rem;
+  background: linear-gradient(90deg, rgb(41, 134, 13), rgb(41, 134, 13));
+}
+
+
+
+
