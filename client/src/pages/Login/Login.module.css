@@ -8,8 +8,19 @@
   overflow: hidden;
 }
 
+.container p {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.bottomLabel {
+  font-size: small;
+  color: rgb(194, 15, 15);
+}
+
 #button {
-  margin-top: 30px;
+  margin-top: 5%;
 }
 
 @media (max-width: 600px) {
