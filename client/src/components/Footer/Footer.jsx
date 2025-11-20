@@ -1,7 +1,7 @@
-import "./Footer.css"
+import styles from "./Footer.module.css"
 
 export default function Footer() {
   return (<footer>
-    <div className="footer-frame"></div>
+    <div className={ styles.footerFrame }></div>
   </footer>);
 }

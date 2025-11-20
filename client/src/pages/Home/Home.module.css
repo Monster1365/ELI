@@ -1,0 +1,26 @@
+.layout {
+  position: relative;
+  min-height: 100vh;
+}
+
+.layout HomeSidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.layout Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.layout Footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+
+}
