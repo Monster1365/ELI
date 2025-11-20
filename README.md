@@ -1,0 +1,5 @@
+[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=000000)](https://react.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=ffffff)](https://nodejs.org/)
+[![npm](https://img.shields.io/badge/npm_11.5.1-CB3837?style=for-the-badge&logo=npm&logoColor=ffffff)](https://www.npmjs.com/)
+[![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=ffffff)](https://expressjs.com/)
+[![SQLite3](https://img.shields.io/badge/SQLite3-003B57?style=for-the-badge&logo=sqlite&logoColor=ffffff)](https://www.sqlite.org/)
