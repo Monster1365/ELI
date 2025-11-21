@@ -78,6 +78,8 @@ export default function Login() {
         </div>
       </form>
       <div className={styles.circle}>
+        <button onClick={() => navigate("/")} className={styles.gobackButton}>Go Back</button>
+        <button onClick={() => navigate("/SignUp")} className={styles.signButton}>Sign up</button>
       </div>
     </div>
   );

@@ -5,8 +5,6 @@ const bcrypt = require("bcryptjs");
 const db = require("../../db");
 
 const SECRET_KEY = process.env.SECRET_KEY;
-//해쉬
-//bcrypt.hashSync(row.password, 8)
 
 function generateToken(user) {
   return jwt.sign(
@@ -27,6 +25,31 @@ router.post("/login", (req, res) => {
 
     const token = generateToken(row);
     res.json({ token });
+  });
+});
+
+router.post("/sign", (req, res) => {
+  if (!req.body) return res.status(400).json({ message: "bad req" });
+  console.log(req.body);
+  const { email, id, password, username } = req.body;
+  const hashedPassword = bcrypt.hashSync(password, 8);
+  
+  db.all("SELECT id, username FROM users", (err, users) => {
+    if (err) return res.status(500).json({ message: "DB 오류" });
+
+    for (const user of users) {
+      if (user.id === id) {
+        return res.status(400).json({ message: "Duplicate id" });
+      }
+      if (user.username === username) {
+        return res.status(400).json({ message: "Duplicate username" });
+      }
+    }
+
+    db.run(`INSERT INTO users(id, password, username, email) VALUES (?, ?, ?, ?)`, [id, hashedpassword, username, email], (err2) => {
+      if (err2) return res.status(500).json({ message: "db 오류" });
+      return res.status(200).json({ message: "success" });
+    });
   });
 });
 

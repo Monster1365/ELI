@@ -1,5 +1,23 @@
 .board {
-  position: absolute;
   height: 100vh;
+  border-radius: 0 !important;
+}
 
+.board,
+.board div,
+.board ul {
+  border-radius: 0 !important;
+}
+
+.user {
+  background: oklch(24.125% 0.0283 257.547);
+  display: flex;
+  height: 5rem;
+}
+
+.user > :first-child {
+  background: white;
+  border-radius: 50px;
+  height: 3rem;
+  width: 3rem;
 }

@@ -1,37 +1,64 @@
 "use client";
 
 import { Sidebar, SidebarItem, SidebarItemGroup, SidebarItems, SidebarLogo } from "flowbite-react";
-import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
-import styles from "./HomeSidebar.module.css"
+import { HiArrowSmRight, HiInbox, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
+import styles from "./HomeSidebar.module.css";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import getUserData from "../../api/getUserData";
 
 export default function HomeSidebar() {
+  const navigate = useNavigate();
+  const [user, setUser] = useState({
+    id: "",
+    username: "",
+    email: ""
+  });
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await getUserData();
+        console.log("User: ", res);
+        setUser(res)
+      } catch (err) {
+        console.error("유저 정보 불러오기 실패:", err);
+      }
+    };
+    getUser();
+  }, []);
+
   return (
-    <Sidebar aria-label="Sidebar with logo branding example" className={ styles.board }>
+    <Sidebar aria-label="Sidebar with logo branding example" className={styles.board}>
       <SidebarLogo href="#" img="./favicon.ico" imgAlt="Flowbite logo">
         Flowbite
       </SidebarLogo>
       <SidebarItems>
-        <SidebarItemGroup>
-          <SidebarItem href="#" icon={HiChartPie}>
-            Dashboard
+        <SidebarItemGroup className={styles.group}>
+          <SidebarItem className={styles.user} href="#" icon={HiUser}>
+            <label>ID: </label>
+            {user.id}
+            <br/>
+            <label>NAME: </label>
+            {user.username}
           </SidebarItem>
           <SidebarItem href="#" icon={HiViewBoards}>
-            Kanban
+            My posts
           </SidebarItem>
           <SidebarItem href="#" icon={HiInbox}>
-            Inbox
-          </SidebarItem>
-          <SidebarItem href="#" icon={HiUser}>
-            Users
-          </SidebarItem>
-          <SidebarItem href="#" icon={HiShoppingBag}>
-            Products
-          </SidebarItem>
-          <SidebarItem href="#" icon={HiArrowSmRight}>
-            Sign In
+            New post
           </SidebarItem>
           <SidebarItem href="#" icon={HiTable}>
-            Sign Up
+            My Contract
+          </SidebarItem>
+          <SidebarItem
+            onClick={() => {
+              localStorage.removeItem("token");
+              navigate("/");
+            }}
+            href="#" icon={HiArrowSmRight}
+          >
+            Log Out
           </SidebarItem>
         </SidebarItemGroup>
       </SidebarItems>

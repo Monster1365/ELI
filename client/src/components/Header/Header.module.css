@@ -4,3 +4,37 @@ header {
   background: oklch(27.8% .033 256.848);
   top: 0;
 }
+
+.headerFrame {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  background: oklch(27.8% .033 256.848);
+  width: 8rem;
+  height: 5rem;
+  margin: auto;
+  border-radius: 1rem;
+  transition: 0.3s;
+}
+
+.box:hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: oklch(24.125% 0.0283 257.547);
+  width: 8rem;
+  height: 5rem;
+  margin: auto;
+  border-radius: 1rem;
+}
