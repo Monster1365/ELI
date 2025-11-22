@@ -11,9 +11,10 @@ export default function Home() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await getUserProfile(); // 토큰 유효하면 통과
-      } catch {
-        localStorage.removeItem("token");
+        const success = await getUserProfile();
+        if (!success) navigate("/");
+      } catch (err) {
+        // localStorage.removeItem("token");
         navigate("/"); // 로그인 페이지로 강제 이동
       }
     };

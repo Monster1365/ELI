@@ -31,7 +31,7 @@ export default function HomeSidebar() {
   return (
     <Sidebar aria-label="Sidebar with logo branding example" className={styles.board}>
       <SidebarLogo href="#" img="./favicon.ico" imgAlt="Flowbite logo">
-        Flowbite
+        ELI WEB
       </SidebarLogo>
       <SidebarItems>
         <SidebarItemGroup className={styles.group}>

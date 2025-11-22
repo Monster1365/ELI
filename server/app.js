@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 const db = require("./db");
 
 dotenv.config();
@@ -11,9 +12,13 @@ const userRouter = require("./api/routes/user");
 
 const app = express();
 app.set('port', process.env.PORT || 3001);
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true,
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);

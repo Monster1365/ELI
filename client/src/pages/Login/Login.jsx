@@ -1,25 +1,18 @@
+import { useState } from "react";
 import { Button } from "flowbite-react";
+import { useNavigate } from "react-router-dom";
 import FormBar from "../../components/FormBar"
 import styles from "./Login.module.css"
-import { useNavigate } from "react-router-dom";
-import getUserProfile from "../../api/getUserProfile";
 import login from "../../api/login";
-import { useState } from "react";
 
 export default function Login() {
   const navigate = useNavigate();
 
+  const [status, setStatus] = useState(null);
   const [formDatas, setFormDatas] = useState({
     id: "",
     password: "",
   });
-  const [status, setStatus] = useState(null);
-
-  const loadProfile = async () => {
-    const profile = await getUserProfile();
-    console.log("loadProfile:", profile);
-    setStatus(profile.inputStatus);
-  };
 
   const handleChange = e => {    
     setFormDatas({
@@ -42,16 +35,14 @@ export default function Login() {
   //로그인
   const handleSubmit = async (e) => {
     e.preventDefault();
-    localStorage.removeItem("token");
-    const inputCheck = checkInput();
-    // alert(JSON.stringify(formDatas, null, 2))
+    checkInput();
     const success = await login(formDatas.id, formDatas.password);
     if (success) {
+      setStatus("success");
       navigate("/home");
+    } else {
+      setStatus("failure");
     }
-    loadProfile();
-    console.log("login success", success);
-    console.log("inputCheck: ", inputCheck);
   };
 
   return (

@@ -15,7 +15,6 @@ function generateToken(user) {
 }
 
 router.post("/login", (req, res) => {
-  console.log(req.body);
   const { id, password } = req.body;
   db.get("SELECT * FROM users WHERE id = ?", [id], (err, row) => {
     if (err) return res.status(500).json({ message: "DB 오류" });
@@ -24,13 +23,19 @@ router.post("/login", (req, res) => {
     if (!valid) return res.status(400).json({ message: "비밀번호 틀림" });
 
     const token = generateToken(row);
-    res.json({ token });
+
+    res.cookie("access_cookie", token, {
+      httpOnly: true,
+      secure: false, //임시
+      sameSite: "lax", //임시
+      maxAge: 1000 * 60 * 60
+    });
+    res.json({ success: true });
   });
 });
 
 router.post("/sign", (req, res) => {
   if (!req.body) return res.status(400).json({ message: "bad req" });
-  console.log(req.body);
   const { email, id, password, username } = req.body;
   const hashedPassword = bcrypt.hashSync(password, 8);
   
@@ -46,7 +51,7 @@ router.post("/sign", (req, res) => {
       }
     }
 
-    db.run(`INSERT INTO users(id, password, username, email) VALUES (?, ?, ?, ?)`, [id, hashedpassword, username, email], (err2) => {
+    db.run(`INSERT INTO users(id, password, username, email) VALUES (?, ?, ?, ?)`, [id, hashedPassword, username, email], (err2) => {
       if (err2) return res.status(500).json({ message: "db 오류" });
       return res.status(200).json({ message: "success" });
     });
