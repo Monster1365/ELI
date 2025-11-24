@@ -39,7 +39,7 @@ export default function Login() {
     const success = await login(formDatas.id, formDatas.password);
     if (success) {
       setStatus("success");
-      navigate("/home");
+      navigate("/Home", {state: {content: "home"}});
     } else {
       setStatus("failure");
     }

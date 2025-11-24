@@ -4,14 +4,16 @@ import chat from "../../imgs/headerImgs/chat.svg";
 import profile from "../../imgs/headerImgs/profile.svg";
 import help from "../../imgs/headerImgs/help.svg";
 import setting from "../../imgs/headerImgs/setting.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate();
   return (<header>
     <div className={ styles.headerFrame }>
-      <div className={styles.box} id={styles.home}>
+      <button onClick={() => {navigate("/Home", {state: {content: "home"}})}} className={styles.box} id={styles.home}>
         <img src={home} alt="home" />
         <label>Home</label>
-      </div>
+      </button>
       <div className={styles.box} id={styles.chat}>
         <img src={chat} alt="chat" />
         <label>Chat</label>

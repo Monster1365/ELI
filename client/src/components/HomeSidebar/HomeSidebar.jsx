@@ -42,10 +42,14 @@ export default function HomeSidebar() {
             <label>NAME: </label>
             {user.username}
           </SidebarItem>
-          <SidebarItem href="#" icon={HiViewBoards}>
+          <SidebarItem onClick={() => {
+            navigate("/Home", {state: {content: "myPosts"}});
+          }} icon={HiViewBoards}>
             My posts
           </SidebarItem>
-          <SidebarItem href="#" icon={HiInbox}>
+          <SidebarItem onClick={() => {
+            navigate("/Home", {state: {content: "newPost"}});
+          }} icon={HiInbox}>
             New post
           </SidebarItem>
           <SidebarItem href="#" icon={HiTable}>

@@ -1,0 +1,142 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 112px);
+  width: 100%;
+  background: #eee;
+}
+
+.containerHead {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  background: oklch(24.125% 0.0283 257.547);
+  width: 100%;
+  height: 10%;
+  padding: 10px;
+}
+
+.containerHead button {
+  width: 90px;
+  height: 60px;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: 0.1s;
+}
+
+#back {
+  color: white;
+  background: rgb(233, 53, 53);
+}
+
+#back:hover {
+  background: rgb(190, 47, 47);
+  width: 92px;
+  height: 62px;
+}
+
+#show {
+  color: white;
+  background: oklch(27.8% .033 256.848);
+}
+
+#show:hover {
+  background: oklch(17.171% 0.01413 258.38);
+  width: 92px;
+  height: 62px;
+}
+
+#post {
+  color: white;
+  background: oklch(27.8% .033 256.848);
+}
+
+#post:hover {
+  background: oklch(17.171% 0.01413 258.38);
+  width: 92px;
+  height: 62px;
+}
+
+.containerBody {
+  display: flex;
+  flex-direction: column;
+  background: oklch(24.125% 0.0283 257.547);
+  width: 100%;
+  height: 90%;
+  padding: 10px;
+  gap: 10px;
+}
+
+.bodyTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  background: oklch(27.8% .033 256.848);
+  width: 100%;
+  height: 10%;
+  border-radius: 50px;
+}
+
+.bodyTitle label {
+  font-weight: bold;
+  color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.bodyTitle input {
+  border-radius: 50px;
+  margin-right: 20px;
+  width: 100%;
+  border: none;
+}
+
+.bodyTitle input::placeholder {
+  color: gray;
+}
+
+.bodyThumbnail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  background: oklch(27.8% .033 256.848);
+  width: 100%;
+  height: 10%;
+  border-radius: 50px;
+}
+
+.bodyThumbnail label {
+  font-weight: bold;
+  color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.bodyThumbnail input {
+  background: white;
+  border-radius: 50px;
+  margin-right: 20px;
+  width: 100%;
+}
+
+.bodyContent {
+  background: oklch(27.8% .033 256.848);
+  width: 100%;
+  height: 80%;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.bodyContent textarea {
+  background: white;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.bodyContent textarea::placeholder {
+  color: gray;
+}

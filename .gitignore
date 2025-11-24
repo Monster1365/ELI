@@ -15,6 +15,7 @@
 
 # misc
 /server/.env
+/server/database.db
 .DS_Store
 .env.local
 .env.development.local
