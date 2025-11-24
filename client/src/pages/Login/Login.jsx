@@ -50,6 +50,7 @@ export default function Login() {
       <form onSubmit={handleSubmit} className={styles.container}>
         <p>Log in</p>
         <FormBar
+          type={ "text" }
           status={ status }
           textType={ "id" }
           name="id"
@@ -57,6 +58,7 @@ export default function Login() {
           onChange={ handleChange }
         />
         <FormBar
+          type={ "password" }
           status={ status }
           textType={ "password" }
           name="password"

@@ -3,12 +3,14 @@ const cors = require("cors");
 const path = require("path");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
+const multer = require("multer");
 const db = require("./db");
 
 dotenv.config();
 const indexRouter = require("./api/routes");
 const authRouter = require("./api/routes/auth");
 const userRouter = require("./api/routes/user");
+const postRouter = require("./api/routes/posts");
 
 const app = express();
 app.set('port', process.env.PORT || 3001);
@@ -23,6 +25,7 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/user', userRouter);
+app.use("/posts", postRouter);
 
 
 app.listen(app.get("port"), () => {

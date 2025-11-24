@@ -1,7 +1,7 @@
 import { Label, TextInput } from "flowbite-react";
 import styles from "./FormBar.module.css";
 
-export default function Component({ status, textType, name, value, onChange }) {
+export default function Component({ type, status, textType, name, value, onChange }) {
   const place = `Enter your ${ textType }`
   return (
     <div className="flex max-w-md flex-col gap-4" >
@@ -13,8 +13,9 @@ export default function Component({ status, textType, name, value, onChange }) {
         </div>
         <TextInput
           id="username"
-          placeholder={ place }
-          required color={ status }
+          type={type}
+          placeholder={place}
+          required color={status}
           name={name}
           value={value}
           onChange={onChange}

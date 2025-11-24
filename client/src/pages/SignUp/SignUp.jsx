@@ -54,6 +54,7 @@ export default function SignUp() {
       <form onSubmit={handleSubmit} className={styles.container}>
         <p>Sign up</p>
         <FormBar
+          type={ "email" }
           status={ status }
           textType={ "email" }
           name="email"
@@ -61,6 +62,7 @@ export default function SignUp() {
           onChange={ handleChange }
         />
         <FormBar
+          type={ "text" }
           status={ status }
           textType={ "id" }
           name="id"
@@ -68,6 +70,7 @@ export default function SignUp() {
           onChange={ handleChange }
         />
         <FormBar
+          type={ "password" }
           status={ status }
           textType={ "password" }
           name="password"
@@ -75,6 +78,7 @@ export default function SignUp() {
           onChange={ handleChange }
         />
         <FormBar
+          type={ "text" }
           status={ status }
           textType={ "username" }
           name="username"

@@ -7,7 +7,7 @@ const getUserData = async () => {
     return userData.data;
   } catch (err) {
     console.error(err);
-    return {};
+    return false;
   }
 }
 

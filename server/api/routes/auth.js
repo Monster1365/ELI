@@ -10,7 +10,7 @@ function generateToken(user) {
   return jwt.sign(
     { id: user.id },
     SECRET_KEY,
-    { expiresIn: "10m" }
+    { expiresIn: "20m" }
   );
 }
 

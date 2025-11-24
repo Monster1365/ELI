@@ -9,7 +9,7 @@
 
 .topContent {
   background: skyblue;
-  height: 12%;
+  height: 10%;
   width: 100%;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@
 
 .middleContent {
   background: cyan;
-  height: 76%;
+  height: 78%;
   width: 100%;
 }
 
@@ -31,30 +31,83 @@
 }
 
 .searchBar {
-  background: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: oklch(27.8% .033 256.848);
   height: 70%;
-  width: 70%;
+  width: 60%;
+  border-radius: 40px;
+  padding: 15px;
+  gap: 3%;
+}
+
+.searchBar label {
+  color: white;
+  margin-top: 6px;
+  margin-left: 2%;
+  font-weight: bold;
+  width: auto;
+  height: 100%;
+}
+
+.searchBar input {
+  background: white;
+  width: 100%;
+  height: 100%;
+  border: none;
   border-radius: 40px;
 }
 
 .filter {
-  background: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: oklch(27.8% .033 256.848);
   height: 70%;
-  width: 13%;
+  width: 23%;
   border-radius: 40px;
+  padding: 15px;
+  gap: 10px;
 }
 
-#tagFilter {
+.filter img {
+  width: 20%;
   height: 100%;
-  width: 100%;
-  border-radius: 40px;
+}
+
+.filter input {
+  background: white;
+  width: 80%;
+  height: 100%;
   border: none;
-  font-weight: bold;
+  border-radius: 40px;
 }
 
 .searchButton {
-  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: oklch(27.8% .033 256.848);
   height: 70%;
   width: 13%;
   border-radius: 40px;
+  transition: 0.3s;
+}
+
+.searchButton:hover {
+  background: oklch(27.8% .033 256.848);
+  height: 71.5%;
+  width: 13.5%;
+}
+
+.searchButton:active {
+  background: oklch(17.171% 0.01413 258.38);
+  height: 67%;
+  width: 12%;
+}
+
+.searchButton img {
+  height: 50%;
+  width: 50%;
 }

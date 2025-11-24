@@ -20,7 +20,11 @@ export default function HomeSidebar() {
       try {
         const res = await getUserData();
         console.log("User: ", res);
-        setUser(res)
+        if (!res) {
+          alert("토큰 유효시간 초과");
+          return navigate("/");
+        }
+        setUser(res);
       } catch (err) {
         console.error("유저 정보 불러오기 실패:", err);
       }
