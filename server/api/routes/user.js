@@ -15,7 +15,6 @@ router.get("/profile", auth, (req, res) => {
 router.get("/data", auth, (req, res) => {
   db.get("SELECT id, username, email FROM users WHERE id = ?", [req.user.id], (err, user) => {
     if (err) return res.status(500).json({ message: "get /user/data: DB 오류" });
-    console.log(user);
     res.json(user);
   });
 });

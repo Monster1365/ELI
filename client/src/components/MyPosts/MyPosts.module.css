@@ -1,5 +1,45 @@
 .container {
+  display: flex;
+  flex-direction: column;
   height: calc(100vh - 112px);
   width: 100%;
-  background: skyblue;
+  background: white;
+  padding: 10px;
+}
+
+.containerHead {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: white;
+  height: 10%;
+  width: 100%;
+}
+
+.containerBody {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: whitesmoke;
+  height: 90%;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.containerHead button {
+  height: 4rem;
+  width: 6rem;
+  background: white;
+  color: black;
+  border-radius: 50px;
+  margin: 5px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transition: 0.1s;
+}
+
+.containerHead button:hover {
+  height: 4.2rem;
+  width: 6.2rem;
 }

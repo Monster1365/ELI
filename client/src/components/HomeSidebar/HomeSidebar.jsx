@@ -19,7 +19,6 @@ export default function HomeSidebar() {
     const getUser = async () => {
       try {
         const res = await getUserData();
-        console.log("User: ", res);
         if (!res) {
           alert("토큰 유효시간 초과");
           return navigate("/");

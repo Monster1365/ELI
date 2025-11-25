@@ -26,6 +26,8 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/user', userRouter);
 app.use("/posts", postRouter);
+app.use("/uploads", express.static("uploads"));
+
 
 
 app.listen(app.get("port"), () => {

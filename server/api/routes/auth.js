@@ -26,8 +26,8 @@ router.post("/login", (req, res) => {
 
     res.cookie("access_cookie", token, {
       httpOnly: true,
-      secure: false, //임시
-      sameSite: "lax", //임시
+      secure: false,
+      sameSite: "lax",
       maxAge: 1000 * 60 * 60
     });
     res.json({ success: true });

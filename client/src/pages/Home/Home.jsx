@@ -8,6 +8,7 @@ import HomeSidebar from "../../components/HomeSidebar";
 import HomeContent from "../../components/HomeContent";
 import MyPosts from "../../components/MyPosts";
 import NewPost from "../../components/NewPost";
+import ShowPost from "../../components/ShowPost";
 
 import getUserProfile from "../../api/getUserProfile";
 
@@ -15,12 +16,14 @@ const components = {
   home: HomeContent,
   myPosts: MyPosts,
   newPost: NewPost,
+  showPost: ShowPost,
 }
 
 export default function Home() {
   const navigate = useNavigate();
   const { state } = useLocation();
   const CurrentComponent = components[state.content];
+  const data = state.data;
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -41,7 +44,7 @@ export default function Home() {
       <div className={styles.right}>
         <Header />
         <div className={styles.mainContent}>
-          <CurrentComponent />
+          <CurrentComponent data={data} />
         </div>
         <Footer />
       </div>
