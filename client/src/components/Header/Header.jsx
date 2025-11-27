@@ -18,10 +18,10 @@ export default function Header() {
         <img src={chat} alt="chat" />
         <label>Chat</label>
       </div>
-      <div className={styles.box} id={styles.profile}>
+      <button onClick={() => {navigate("/Home", {state: {content: "profile"}})}} className={styles.box} id={styles.profile}>
         <img src={profile} alt="profile" />
         <label>Profile</label>
-      </div>
+      </button>
       <div className={styles.box} id={styles.help}>
         <img src={help} alt="help" />
         <label>Help</label>

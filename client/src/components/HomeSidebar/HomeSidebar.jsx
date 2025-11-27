@@ -1,10 +1,11 @@
 "use client";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
+import styles from "./HomeSidebar.module.css";
 import { Sidebar, SidebarItem, SidebarItemGroup, SidebarItems, SidebarLogo } from "flowbite-react";
 import { HiArrowSmRight, HiInbox, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
-import styles from "./HomeSidebar.module.css";
-import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+
 import getUserData from "../../api/getUserData";
 
 export default function HomeSidebar() {
@@ -12,7 +13,6 @@ export default function HomeSidebar() {
   const [user, setUser] = useState({
     id: "",
     username: "",
-    email: ""
   });
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function HomeSidebar() {
       }
     };
     getUser();
-  }, []);
+  }, [user]);
 
   return (
     <Sidebar aria-label="Sidebar with logo branding example" className={styles.board}>
@@ -38,7 +38,7 @@ export default function HomeSidebar() {
       </SidebarLogo>
       <SidebarItems>
         <SidebarItemGroup className={styles.group}>
-          <SidebarItem className={styles.user} href="#" icon={HiUser}>
+          <SidebarItem className={styles.user}>
             <label>ID: </label>
             {user.id}
             <br/>

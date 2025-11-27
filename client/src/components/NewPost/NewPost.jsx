@@ -46,7 +46,7 @@ export default function Newpost() {
     formData.append("title", title);
     formData.append("content", content);
     formData.append("price", price);
-    formData.append("tag", price);
+    formData.append("tag", tag);
     if (thumbnail) {
       formData.append("thumbnail", thumbnail);
     }

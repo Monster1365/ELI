@@ -9,11 +9,13 @@ import HomeContent from "../../components/HomeContent";
 import MyPosts from "../../components/MyPosts";
 import NewPost from "../../components/NewPost";
 import ShowPost from "../../components/ShowPost";
+import Profile from "../../components/Profile";
 
 import getUserProfile from "../../api/getUserProfile";
 
 const components = {
   home: HomeContent,
+  profile: Profile,
   myPosts: MyPosts,
   newPost: NewPost,
   showPost: ShowPost,

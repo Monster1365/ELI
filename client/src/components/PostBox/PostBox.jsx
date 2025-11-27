@@ -1,8 +1,5 @@
 import styles from "./PostBox.module.css";
 
-//todo
-//get props
-
 export default function PostBox({title, price, imgURL, onClick}) {
   const post = {
     title: title,

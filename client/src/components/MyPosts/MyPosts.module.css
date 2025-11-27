@@ -20,11 +20,12 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  background: whitesmoke;
+  background: white;
   height: 90%;
   width: 100%;
   padding: 1rem;
   border-radius: 50px;
+  overflow-y: auto;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 

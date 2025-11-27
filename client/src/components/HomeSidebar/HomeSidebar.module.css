@@ -14,10 +14,3 @@
   display: flex;
   height: 5rem;
 }
-
-.user > :first-child {
-  background: white;
-  border-radius: 50px;
-  height: 3rem;
-  width: 3rem;
-}

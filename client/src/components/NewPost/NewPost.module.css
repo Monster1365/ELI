@@ -3,7 +3,6 @@
   flex-direction: column;
   height: calc(100vh - 112px);
   width: 100%;
-  background: #eee;
 }
 
 .containerHead {
