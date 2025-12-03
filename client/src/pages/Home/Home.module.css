@@ -46,7 +46,6 @@
   align-items: center;
   justify-content: center;
   background: white;
-  /* height: calc(120vh - (112px*2)); */
   height: auto;
   width: 100%;
   margin-top: 112px;
@@ -63,6 +62,6 @@
   }
 
   .right > :first-child {
-  width: var(--width2);
-}
+    width: var(--width2);
+  }
 }

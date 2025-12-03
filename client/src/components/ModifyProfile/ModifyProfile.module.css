@@ -5,16 +5,43 @@
   border-radius: 5rem;
 }
 
-form {
+.myForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
-#img {
+.myInput {
   background: white;
+  height: 2.5rem;
+  width: 90%;
+  border: none;
+  border-radius: 3rem;
+}
+
+.myLabel {
+  color: white;
+  margin-top: 0.5rem;
+}
+
+.myForm > :last-child {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+#button1 {
+  background: rgb(169, 242, 59);
+  width: 3rem;
   height: 2rem;
-  width: 100%;
+  border-radius: 3rem;
+}
+#button2 {
+  background: rgb(255, 68, 68);
+  width: 3rem;
+  height: 2rem;
+  border-radius: 3rem;
 }

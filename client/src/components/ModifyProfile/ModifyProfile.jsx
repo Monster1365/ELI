@@ -6,7 +6,7 @@ import styles from "./ModifyProfile.module.css";
 import getUserData from "../../api/getUserData";
 import updateUserProfile from "../../api/updateUserProfile";
 
-export default function ModifyProfile() {
+export default function ModifyProfile({ onClose }) {
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -49,44 +49,59 @@ export default function ModifyProfile() {
     } catch (err) {
       alert("변경 실패");
     }
+    onClose();
   };
 
   return(
     <div className={styles.box}>
       <form
+        className={styles.myForm}
         id="profileForm"
         onSubmit={handleSubmit}
         encType="multipart/form-data">
+          <label className={styles.myLabel}>New Name</label>
           <input
+            className={styles.myInput}
             type="text"
             name="username"
-            placeholder="제목을 입력하세요..."
+            placeholder="새 이름을 입력하세요..."
             value={user.username}
             onChange={(e) => setUser((prev) => ({ ...prev, username: e.target.value }))}
           />
+          <label className={styles.myLabel}>New Email</label>
           <input
+            className={styles.myInput}
             type="email"
             name="email"
-            placeholder="제목을 입력하세요..."
+            placeholder="새 이메일을 입력하세요..."
             value={user.email}
             onChange={(e) => setUser((prev) => ({ ...prev, email: e.target.value }))}
           />
+          <label className={styles.myLabel}>New Intro</label>
           <input
+            className={styles.myInput}
             type="text"
             name="intro"
-            placeholder="제목을 입력하세요..."
+            placeholder="소개글을 입력하세요..."
             value={user.intro}
             onChange={(e) => setUser((prev) => ({ ...prev, intro: e.target.value }))}
           />
+          <label className={styles.myLabel}>New Profile image</label>
           <input
+            className={styles.myInput}
             id={styles.img}
             type="file"
             accept="image/*"
             onChange={(e) => setUser((prev) => ({ ...prev, image: e.target.files[0] }))}
           />
-          <button type="submit" form="profileForm">
-            수정
-          </button>
+          <div>
+            <button id={styles.button1} type="submit" form="profileForm">
+              수정
+            </button>
+            <button onClick={onClose} id={styles.button2}>
+              취소
+            </button>
+          </div>
       </form>
     </div>
   )

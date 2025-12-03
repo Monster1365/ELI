@@ -10,6 +10,7 @@ import MyPosts from "../../components/MyPosts";
 import NewPost from "../../components/NewPost";
 import ShowPost from "../../components/ShowPost";
 import Profile from "../../components/Profile";
+import Chat from "../../components/Chat";
 
 import getUserProfile from "../../api/getUserProfile";
 
@@ -19,6 +20,7 @@ const components = {
   myPosts: MyPosts,
   newPost: NewPost,
   showPost: ShowPost,
+  chat: Chat,
 }
 
 export default function Home() {

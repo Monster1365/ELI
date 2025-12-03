@@ -11,6 +11,7 @@ const indexRouter = require("./api/routes");
 const authRouter = require("./api/routes/auth");
 const userRouter = require("./api/routes/user");
 const postRouter = require("./api/routes/posts");
+const chatRouter = require("./api/routes/chat");
 
 const app = express();
 app.set('port', process.env.PORT || 3001);
@@ -26,6 +27,7 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/user', userRouter);
 app.use("/posts", postRouter);
+app.use("/chat", chatRouter);
 app.use("/uploads", express.static("uploads"));
 
 

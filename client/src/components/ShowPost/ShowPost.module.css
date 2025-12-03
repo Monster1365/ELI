@@ -126,6 +126,14 @@
   width: 1rem;
 }
 
+#chatBtn {
+  height: 3rem;
+  width: 5rem;
+  border-radius: 2rem;
+  margin-right: 2rem;
+  background: rgb(51, 203, 61);
+}
+
 @media (min-width: 1025px) {
   .box {
     flex-direction: row;

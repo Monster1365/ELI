@@ -6,6 +6,13 @@ export default function PostBox({title, price, imgURL, onClick}) {
     price: price,
     imgURL: imgURL,
   }
+
+  function getPrice(price) {
+    let result = price.toLocaleString();
+    result = result.replace(/ /g,"");
+    return result;
+  }
+
   return (
     <div className={styles.box} onClick={onClick}>
       <div className={styles.thumbnail}>
@@ -20,7 +27,7 @@ export default function PostBox({title, price, imgURL, onClick}) {
         <div className={styles.price}>
           <label id={styles.priceText}>Price: </label>
           <label id={styles.priceValue}>
-            {post.price}
+            {getPrice(post.price)}
           </label>
         </div>
       </div>

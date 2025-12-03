@@ -10,6 +10,12 @@ import getUserData from "../../api/getUserData";
 
 export default function Profile() {
   const navigate = useNavigate();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openPopup = () => setIsOpen(true);
+  const closePopup = () => setIsOpen(false);
+
   const [user, setUser] = useState({
     id: "",
     username: "",
@@ -32,16 +38,16 @@ export default function Profile() {
       }
     };
     getUser();
-  }, []);
+  }, [user]);
 
   return(
     <div className={styles.container}>
       <div className={styles.modifyProfile}>
-        <ModifyProfile />
+        {isOpen && <ModifyProfile onClose={closePopup} />}
       </div>
       <div className={styles.body}>
         <div className={styles.top}>
-          <img alt="img" src={user.image? `http://localhost:3001${user.image}`: userImage} />
+          <div className={styles.topImg}><img alt="img" src={user.image? `http://localhost:3001${user.image}`: userImage} /></div>
           <div className={styles.topText}>
             <label>ID: {user.id}</label>
             <label>Name: {user.username}</label>
@@ -51,8 +57,8 @@ export default function Profile() {
         <div className={styles.middle}>
           <p><label>{user.intro? user.intro: "소개글이 없습니다."}</label></p>
           <div className={styles.bottom}>
-            <button>Modify</button>
-            <button>Back</button>
+            <button onClick={openPopup}>Modify</button>
+            <button onClick={() => {navigate("/Home", {state: {content: "home"}});}} >Back</button>
           </div>
         </div>
       </div>

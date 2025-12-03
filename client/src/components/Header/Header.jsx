@@ -8,13 +8,13 @@ import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const navigate = useNavigate();
-  return (<header>
+  return (<header className={styles.myHeader}>
     <div className={ styles.headerFrame }>
       <button onClick={() => {navigate("/Home", {state: {content: "home"}})}} className={styles.box} id={styles.home}>
         <img src={home} alt="home" />
         <label>Home</label>
       </button>
-      <div className={styles.box} id={styles.chat}>
+      <div onClick={() => {navigate("/Home", {state: {content: "chat"}})}} className={styles.box} id={styles.chat}>
         <img src={chat} alt="chat" />
         <label>Chat</label>
       </div>

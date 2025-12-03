@@ -37,16 +37,24 @@ router.put("/update", auth, upload.single("image"), (req, res) => {
   let imagelUrl = null;
   if (req.file) {
     imagelUrl = `/uploads/${req.file.filename}`;
+    db.run(
+      `UPDATE users SET username = ?, email = ?, image = ?, intro = ? WHERE id = ?`,
+      [username, email, imagelUrl, intro, req.user.id],
+      function (err) {
+        if (err) return res.status(500).json({ error: err });
+        res.json({ message: "success" });
+      }
+    );
+  } else {
+      db.run(
+      `UPDATE users SET username = ?, email = ?, intro = ? WHERE id = ?`,
+      [username, email, intro, req.user.id],
+      function (err) {
+        if (err) return res.status(500).json({ error: err });
+        res.json({ message: "success" });
+      }
+    );
   }
-
-  db.run(
-    `UPDATE users SET username = ?, email = ?, image = ?, intro = ? WHERE id = ?`,
-    [username, email, imagelUrl, intro, req.user.id],
-    function (err) {
-      if (err) return res.status(500).json({ error: err });
-      res.json({ message: "success", id: this.lastID });
-    }
-  );
-})
+});
 
 module.exports = router;
