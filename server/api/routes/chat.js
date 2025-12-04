@@ -12,6 +12,28 @@ router.get("/room", auth, (req, res) => {
   });
 });
 
+router.get("/other/:id", auth, (req, res) => {
+  const userId = req.user.id;
+  const roomId = req.params.id;
+  const sql = `
+    SELECT u.username, u.image
+    FROM chat_room_members m
+    JOIN users u ON m.user_id = u.id
+    WHERE m.room_id = ?
+      AND m.user_id != ?
+    LIMIT 1;
+  `;
+  db.get(sql, [roomId, userId], (err, other) => {
+    if (err) return res.status(500).json({ message: "DB 오류" });
+
+    if (!other) {
+      return res.status(404).json({ message: "상대방이 없습니다." });
+    }
+
+    res.json(other);
+  });
+});
+
 
 /**chat_rooms 생성
  * 1) 두 유저가 들어있는 방 찾기

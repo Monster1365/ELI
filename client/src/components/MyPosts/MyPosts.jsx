@@ -7,6 +7,7 @@ import getPostsData from "../../api/getPostsData";
 export default function MyPosts() {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
+  const [isNew, setIsNew] = useState(true);
 
   useEffect(() => {
     const getPosts = async () => {
@@ -27,11 +28,27 @@ export default function MyPosts() {
   return(
     <div className={styles.container}>
       <div className={styles.containerHead}>
-        <button id={styles.button1}>New</button>
-        <button id={styles.button2}>Old</button>
+        <button onClick={() => setIsNew(true)} id={styles.button1}>New</button>
+        <button onClick={() => setIsNew(false)} id={styles.button2}>Old</button>
       </div>
       <div className={styles.containerBody}>
-        {posts.map(post => (
+        {isNew? [...posts].reverse().map(post => (
+          <PostBox
+            key={post.id}
+            title={post.title}
+            price={post.price}
+            imgURL={post.thumbnail}
+            onClick={() => {
+              navigate("/Home", {
+                state: {
+                  content: "showPost",
+                  data: post,
+                }
+              })
+            }}
+          />
+        )):
+        posts.map(post => (
           <PostBox
             key={post.id}
             title={post.title}

@@ -53,6 +53,7 @@ export default function ShowPost({data}) {
   async function createChat() {
     const room = await createChatRoom(user.id, show.author_id);
     console.log(room);
+    navigate("/Home", {state: {content: "chat"}});
   }
 
   return(
@@ -77,7 +78,7 @@ export default function ShowPost({data}) {
         </div>
         <div className={styles.body}>
           <div className={styles.second}>
-            <p>{show.content}</p>
+            <pre>{show.content}</pre>
           </div>
           <div className={styles.third}>
             <button onClick={createChat} id={styles.chatBtn}>Chat</button>

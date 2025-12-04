@@ -41,7 +41,7 @@ export default function HomeContent() {
       </button>
     </div>
     <div className={styles.middleContent}>
-      {posts.map(post => (
+      {[...posts].reverse().map(post => (
         <PostBox
           key={post.id}
           title={post.title}
