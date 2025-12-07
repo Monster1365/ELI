@@ -5,7 +5,9 @@ const getChatOther = async (id) => {
     const other = await api.get(`/chat/other/${id}`);
     return other.data;
   } catch (err) {
-    console.error(err);
+    if (!id) {
+      console.log("room_id dose not exist.");
+    } else console.error(err);
     return false;
   }
 }

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "./HomeSidebar.module.css";
 import { Sidebar, SidebarItem, SidebarItemGroup, SidebarItems, SidebarLogo } from "flowbite-react";
-import { HiArrowSmRight, HiInbox, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
+import { HiArrowSmRight, HiInbox, HiTable, HiViewBoards } from "react-icons/hi";
 
 import getUserData from "../../api/getUserData";
 
@@ -16,7 +16,7 @@ export default function HomeSidebar() {
   });
 
   useEffect(() => {
-    const getUser = async () => {
+    const getUserInfo = async () => {
       try {
         const res = await getUserData();
         if (!res) {
@@ -28,7 +28,7 @@ export default function HomeSidebar() {
         console.error("유저 정보 불러오기 실패:", err);
       }
     };
-    getUser();
+    getUserInfo();
   }, [user]);
 
   return (

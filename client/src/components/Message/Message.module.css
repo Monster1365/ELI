@@ -1,0 +1,19 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+
+.info {
+  display: flex;
+  height: 2rem;
+  width: 100%;
+}
+
+.infoImage {
+  height: 2rem;
+  width: 2rem;
+  overflow: clip;
+}

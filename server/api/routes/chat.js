@@ -3,6 +3,9 @@ const path = require("path");
 const router = express.Router();
 const auth = require("../middlewares/authMiddleware");
 const db = require("../../db");
+const { log } = require("console");
+
+let clients = [];
 
 router.get("/room", auth, (req, res) => {
   const userId = req.user.id;
@@ -76,6 +79,68 @@ router.post("/room", (req, res) => {
     console.error("채팅방 생성 중 오류 발생:", error);
     res.status(500).json({ error: "Failed to create chat room" });
   }
+});
+
+router.get("/stream/:roomId", (req, res) => {
+  const roomId = req.params.roomId;
+
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Connection", "keep-alive");
+
+  res.flushHeaders();
+
+  const client = { id: Date.now(), roomId, res };
+  clients.push(client);
+
+  //console.log("SSE 연결:", client.id);
+
+  req.on("close", () => {
+    clients = clients.filter(c => c.id !== client.id);
+    //console.log("SSE 종료:", client.id);
+  });
+});
+
+//@Get all message data
+router.get("/message/:roomId", (req, res) => {
+  const roomId = req.params.roomId;
+
+  db.all(`SELECT id, sender_id, content, created_at FROM messages WHERE room_id = ?`, [roomId], (err, result) => {
+    if (err) return res.status(500).json({ message: "DB 오류" });
+    return res.json(result);
+  });
+});
+
+//@Post a message
+router.post("/message", auth, (req, res) => {
+  const { roomId, content } = req.body;
+  const senderId = req.user.id;
+
+  db.run(
+    `INSERT INTO messages (room_id, sender_id, content, created_at)
+     VALUES (?, ?, ?, ?)`,
+    [roomId, senderId, content, Date.now()],
+    function (err) {
+      if (err) return res.status(500).json({ error: err });
+
+      const newMessage = {
+        id: this.lastID,
+        room_id: roomId,
+        sender_id: senderId,
+        content,
+        created_at: Date.now(),
+      };
+
+      //SSE 브로드캐스트
+      clients
+        .filter(c => c.roomId == roomId)
+        .forEach(c => {
+          c.res.write(`data: ${JSON.stringify(newMessage)}\n\n`);
+        });
+
+      res.json({ message: "success", id: this.lastID });
+    }
+  );
 });
 
 module.exports = router;

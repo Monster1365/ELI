@@ -1,0 +1,113 @@
+.myBody {
+  height: 100%;
+  width: 100%;
+}
+
+.rightTop {
+  position: relative;
+  background: oklch(27.8% .033 256.848);
+  color: white;
+  font-weight: bold;
+  height: 10%;
+  width: 100%;
+}
+
+#topName {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 3%;
+}
+
+#topSelect {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 3%;
+}
+
+.rightMiddle {
+  background: #E1F6FA;
+  height: 75%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.rightBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: oklch(27.8% .033 256.848);
+  height: 15%;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.sendContract {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 80%;
+  padding: 1rem;
+}
+
+.sendMessage {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 80%;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.sendContract button {
+  border-radius: 1rem;
+  color: white;
+  border: 1px solid #FF9614;
+  width: 100%;
+  height: 100%;
+}
+
+.sendMessage input {
+  border: none;
+  border-radius: 1rem;
+  width: 80%;
+  height: 100%;
+}
+
+#sendBtn {
+  border-radius: 1rem;
+  color: white;
+  border: 1px solid #5AE0FF;
+  width: 20%;
+  height: 100%;
+}
+
+.msgBar {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 4rem;
+  width: 100%;
+  border: 2px solid black;
+}
+
+.userMsg {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  background: white;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.otherMsg {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  background: white;
+  top: 50%;
+  transform: translate(0, -50%);
+}

@@ -57,4 +57,11 @@ router.put("/update", auth, upload.single("image"), (req, res) => {
   }
 });
 
+router.get("/:id", (req, res) => {
+  db.get("SELECT username, email, image, intro FROM users WHERE id = ?", [req.params.id], (err, user) => {
+    if (err) return res.status(500).json({ message: "get /user/id: DB 오류" });
+    res.json(user);
+  });
+});
+
 module.exports = router;
