@@ -131,7 +131,9 @@
   width: 5rem;
   border-radius: 2rem;
   margin-right: 2rem;
-  background: rgb(51, 203, 61);
+  background: #5AE0FF;
+  border: 2px solid #5AE0FF;
+  box-shadow: 0 0 5px #5AE0FF;
 }
 
 @media (min-width: 1025px) {

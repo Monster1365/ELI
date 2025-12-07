@@ -16,17 +16,20 @@
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  left: 3%;
+  left: 1rem;
 }
 
 #topSelect {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  right: 3%;
+  right: 1rem;
 }
 
 .rightMiddle {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   background: #E1F6FA;
   height: 75%;
   width: 100%;
@@ -70,11 +73,13 @@
   height: 100%;
 }
 
-.sendMessage input {
+.sendMessage textarea {
   border: none;
   border-radius: 1rem;
   width: 80%;
-  height: 100%;
+  line-height: normal;
+  overflow: auto;
+  -webkit-font-smoothing: antialiased;
 }
 
 #sendBtn {
@@ -86,28 +91,19 @@
 }
 
 .msgBar {
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
-  height: 4rem;
+  padding: 0.5rem;
+  padding-top: 2rem;
   width: 100%;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 
 .userMsg {
-  position: absolute;
-  height: 100%;
-  right: 0;
-  background: white;
-  top: 50%;
-  transform: translate(0, -50%);
+  align-items: flex-end;
 }
 
 .otherMsg {
-  position: absolute;
-  height: 100%;
-  left: 0;
-  background: white;
-  top: 50%;
-  transform: translate(0, -50%);
+  align-items: flex-start;
 }

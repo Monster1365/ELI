@@ -1,19 +1,76 @@
-.box {
+.leftBox {
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
-  height: 100%;
+  height: auto;
   width: 100%;
-  padding: 1rem;
+  margin-top: 0.5rem;
+}
+
+.rightBox {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  margin-top: 0.5rem;
 }
 
 .info {
+  position: absolute;
+  top: 2px;
   display: flex;
-  height: 2rem;
-  width: 100%;
+  align-items: center;
+  padding: 0.5rem;
+  gap: 1rem;
+  border: 1.5px solid black;
+  border-radius: 2rem;
+}
+
+.rightBox .info {
+  flex-direction: row-reverse;
+  right: 2px;
+}
+
+.leftBox .info {
+  flex-direction: row;
+  left: 2px;
 }
 
 .infoImage {
   height: 2rem;
   width: 2rem;
+  border-radius: 100%;
   overflow: clip;
+}
+
+.msgMain {
+  display: flex;
+  flex-direction: row;
+  padding: 0.8rem;
+  margin: 0.5rem;
+}
+
+.msgContent {
+  background: beige;
+  border-radius: 1rem;
+  padding: 0.8rem;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.msgDate {
+  display: flex;
+  align-items: flex-end;
+  font-size: 0.8rem;
+  padding: 0.4rem;
+}
+
+.rightBox .msgContent {
+  border-top-right-radius: 0;
+}
+
+.leftBox .msgContent {
+  border-top-left-radius: 0;
 }

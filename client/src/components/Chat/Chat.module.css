@@ -38,6 +38,6 @@
 }
 
 @media (min-width: 1025px) {
-  .left {width: 25%;}
-  .right {width: 75%;}
+  .left {width: 30%;}
+  .right {width: 70%;}
 }

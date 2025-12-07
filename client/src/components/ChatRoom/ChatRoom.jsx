@@ -108,11 +108,12 @@ export default function ChatRoom({roomId}) {
           onSubmit={handleSubmit}
           className={styles.sendMessage}
         >
-          <input
-            type="text"
-            name="content"
+          <textarea
+            rows="6"
+            cols="22"
             value={content}
-            onChange={(e) => setContent(e.target.value)} />
+            onChange={(e) => setContent(e.target.value)}
+          ></textarea>
           <button onClick={getChatMessages} id={styles.sendBtn} type="submit" form="sendForm">
             send
           </button>
